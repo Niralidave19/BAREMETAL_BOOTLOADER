@@ -18,14 +18,56 @@
 
 #include <stdint.h>
 #include "app_proto.h"
+#include "flash_proto.h"
+#include "stm32f446xx.h"
 #if !defined(__SOFT_FP__) && defined(__ARM_FP)
   #warning "FPU is not initialized, but the project is compiling for an FPU. Please initialize the FPU before use."
 #endif
 
+/*
 int main(void)
 {
-	app_init();
+	gpio_config_t         gpio_pin;
+	//UART_config_t         UART_config;
+	uint8_t               val = 1;
+	gpio_pin.port_id    = GPIO_ID_A;
+	gpio_pin.mode       = GPIO_MODE_OUT;
+	gpio_pin.op_type    = GPIO_OP_PUSH_PULL;
+	gpio_pin.op_speed   = GPIO_LOW_SPEED;
+	gpio_pin.push_pull  = GPIO_PULL_UP;
+	gpio_pin.alt_func   = GPIO_AF7;
+	gpio_pin.enable     = GPIO_ENABLE;
+	gpio_pin.pin_number = 5;
+	GPIO_Clock(gpio_pin.port_id,gpio_pin.enable);
+	GPIO_Init(gpio_pin);
 	while(1){
+		GPIO_WritetoPin(gpio_pin,val);
+		delay(100000);
+		GPIO_WritetoPin(gpio_pin,0);
+		delay(100000);
+	}
+    /* Loop forever */
+	/*
+	for(;;);
+}*/
+#define RESET_HANDLER_ADDRESS 0x08060004
+void (*func_ptr)(void);
+#define SCB_ICSR     (*(volatile uint32_t*)0xE000ED04)
+#define PENDSVSET    (1UL << 28)   // Bit 28
+int main(void)
+{
+
+	app_init();
+	__asm volatile("CPSIE i");   // Enable global interrupts
+	while(1){
+		 /*calling application update routine*/
+		check_receive();
+		uint32_t pointer = *(uint32_t*)((RESET_HANDLER_ADDRESS));
+		func_ptr = (uint32_t *)pointer;
+		(func_ptr)();
+		//__asm volatile ("LDR R0, =#537001980");
+		//__asm volatile ("MSR MSP, R0");
+		//__asm volatile("b func_ptr");
 		app_update();
 	}
     /* Loop forever */
