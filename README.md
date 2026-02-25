@@ -26,7 +26,6 @@ The bootloader provides a complete system to:
 ## Linker script
 1. Define the memory layout for RAM and FLASH memory.
 2. Create different sections of memory, and define where they would be placed (in flash/RAM?)
- <img width="801" height="392" alt="image" src="https://github.com/user-attachments/assets/f93e1962-d8c9-41fe-a923-5224e80a8472" />
 ---
 ### DATA segment
 - Stored in flash ( copied to RAM during startup)
@@ -44,8 +43,9 @@ The bootloader provides a complete system to:
 - Section goes into RAM since they are read and write variables
 - Uninitialized globals and statics are stored in the .BSS segment
   
-
+ <img width="801" height="392" alt="image" src="https://github.com/user-attachments/assets/f93e1962-d8c9-41fe-a923-5224e80a8472" />
    
+
 
 
 
