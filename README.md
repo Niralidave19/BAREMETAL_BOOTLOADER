@@ -27,13 +27,13 @@ The bootloader provides a complete system to:
 1. Define the memory layout for RAM and FLASH memory.
 2. Create different sections of memory, and define where they would be placed (in flash/RAM?)
    2.1 .DATA
-       - Stored in flash ( copied to RAM during startup)
-       - Contains initialized globals and statics
-       - Initial values lives in Flash memory , then copied to RAM for usage during execution.
-       - _la_data = LOADADDR(.data) This stores the Load Memory Address (LMA) of .data segment. This is the address in Flash where the initial values are stored
-       - _sdata = . This marks the start of data in SRAM
-       - _edata = . This marks the end of data in SRAM
-       -  Run .data from SRAM, but load it from FLASH
+   - Stored in flash ( copied to RAM during startup)
+   - Contains initialized globals and statics
+   - Initial values lives in Flash memory , then copied to RAM for usage during execution.
+   - _la_data = LOADADDR(.data) This stores the Load Memory Address (LMA) of .data segment. This is the address in Flash where the initial values are stored
+   - _sdata = . This marks the start of data in SRAM
+   - _edata = . This marks the end of data in SRAM
+   - Run .data from SRAM, but load it from FLASH
    2.2 .TEXT
        - Section goes into the flash memory
        - Contains all executable instructions , constants , vector table which goes into flash memory.
@@ -42,3 +42,4 @@ The bootloader provides a complete system to:
    <img width="801" height="392" alt="image" src="https://github.com/user-attachments/assets/f93e1962-d8c9-41fe-a923-5224e80a8472" />
 
    
+
