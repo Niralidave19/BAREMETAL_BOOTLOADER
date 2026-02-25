@@ -25,7 +25,7 @@ The bootloader provides a complete system to:
 
 ## Linker script
 1. Define the memory layout for RAM and FLASH memory.
-2. Create different sections of memory, and define where they would be placed (in flash/RAM?)
+2. Create different sections of memory, and define where they would be placed and executed.(in flash/RAM?)
 ### DATA segment
 - Stored in flash ( copied to RAM during startup)
 - Contains initialized globals and statics
@@ -45,7 +45,18 @@ The bootloader provides a complete system to:
  <img width="801" height="392" alt="image" src="https://github.com/user-attachments/assets/f93e1962-d8c9-41fe-a923-5224e80a8472" />
    
 ## STARTUP file 
--
+### Vector table 
+Vector table is defined in the startup file, which has the Stack pointer , address of reset handler, and the interrupt / exception handlers.
+- On power up, CPU reads vector_table[0] and vector_table[1].Both these values are read automatically by hardware, CPU has no stack, no PC at reset, no execution of any code.
+- Entry [0] of the vector table is the Stack Pointer , Entry [1] has the address of the reset handler
+- Vector_table[0] is loaded onto SP and Vector_table[1] is loaded onto PC register of the controller.
+- Execution begins from reset handler, starting at the address loaded into PC
+### Execution of reset handler 
+- Reset handler, copies .data to SRAM: All the initialised globals and statics are copied into RAM
+- Initialises all the memory addresses in the BSS segment to 0
+- Calls main()
+
+
 
 
 
