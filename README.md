@@ -56,6 +56,15 @@ Vector table is defined in the startup file, which has the Stack pointer , addre
 - Initialises all the memory addresses in the BSS segment to 0
 - Calls main()
 
+## Bootloader 
+### Receive flash file as serial data frames
+
+
+### STM32 receives the data frame via UART RX
+- 
+
+
+
 
 
 
