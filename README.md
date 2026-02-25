@@ -57,11 +57,14 @@ Vector table is defined in the startup file, which has the Stack pointer , addre
 - Calls main()
 
 ## Bootloader 
+<img width="545" height="457" alt="image" src="https://github.com/user-attachments/assets/354ea12b-9bfe-4ac0-a921-7e1c7cbdba23" />
+
 ### Receive flash file as serial data frames
 
 
 ### STM32 receives the data frame via UART RX
 - 
+
 
 
 
