@@ -26,7 +26,7 @@ The bootloader provides a complete system to:
 ## Linker script
 1. Define the memory layout for RAM and FLASH memory.
 2. Create different sections of memory, and define where they would be placed (in flash/RAM?)
-   2.1 .DATA
+   .DATA
    - Stored in flash ( copied to RAM during startup)
    - Contains initialized globals and statics
    - Initial values lives in Flash memory , then copied to RAM for usage during execution.
@@ -42,4 +42,5 @@ The bootloader provides a complete system to:
    <img width="801" height="392" alt="image" src="https://github.com/user-attachments/assets/f93e1962-d8c9-41fe-a923-5224e80a8472" />
 
    
+
 
