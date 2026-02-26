@@ -64,6 +64,9 @@ Vector table is defined in the startup file, which has the Stack pointer , addre
 <img width="902" height="734" alt="image" src="https://github.com/user-attachments/assets/c7a6ff21-6736-4f38-bd3d-b14408aab216" />
 
 ## CRC - Cyclic redundancy check
+- Error detection mechanism used to detect where data has been corrupted during transmission.
+- The app treats the message as a bit stream , performs polynomial division using a fixed polynomial.The remainder is the CRC. This application calculates the CRC for every three bytes and appends the CRC to the data.
+- The polynomial used for the division is: 0b10101010
 
 
 
