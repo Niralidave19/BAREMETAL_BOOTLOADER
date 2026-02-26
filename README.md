@@ -57,13 +57,14 @@ Vector table is defined in the startup file, which has the Stack pointer , addre
 - Calls main()
 
 ## Bootloader 
+- Flash file is received by STM via UART, and it is flashed into SECTOR 5 and SECTOR 6 of flash memory.
+- A propreitry protocol is established , for establishing the communication between the application and STM.
+- The application runs a python program, that requests for "Flashing of software"
+- The below image shows the communication between the app and microcontroller.
 <img width="902" height="734" alt="image" src="https://github.com/user-attachments/assets/c7a6ff21-6736-4f38-bd3d-b14408aab216" />
 
-### Receive flash file as serial data frames
 
 
-### STM32 receives the data frame via UART RX
-- 
 
 
 
