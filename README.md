@@ -63,6 +63,8 @@ Vector table is defined in the startup file, which has the Stack pointer , addre
 - The below image shows the communication between the app and microcontroller.
 <img width="902" height="734" alt="image" src="https://github.com/user-attachments/assets/c7a6ff21-6736-4f38-bd3d-b14408aab216" />
 
+## CRC - Cyclic redundancy check
+
 
 
 
