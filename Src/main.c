@@ -50,7 +50,7 @@ int main(void)
 	/*
 	for(;;);
 }*/
-#define RESET_HANDLER_ADDRESS 0x08060004
+#define RESET_HANDLER_ADDRESS 0x08060004  //Reset handler at sector 7, of the received image. Base address of sector 7 0x8060000
 void (*func_ptr)(void);
 #define SCB_ICSR     (*(volatile uint32_t*)0xE000ED04)
 #define PENDSVSET    (1UL << 28)   // Bit 28
